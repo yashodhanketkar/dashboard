@@ -5,14 +5,12 @@ from ...database.models import db, BODATA_CLASS
 variables = Blueprint("variables", __name__, url_prefix="/variables")
 
 
-def get_all_field_values(field, formatted=True):
+def get_all_field_values(field):
     field_values = []
     iter_obj = db.session.execute(db.select(field))
-    if not formatted:
-        field_values = [item[0] for item in iter_obj]
     for i, item in enumerate(iter_obj):
-        if item[0]:
-            field_values.append({"id": i, "data": item[0]})
+        _val = item[0] if item[0] else None
+        field_values.append({"id": i, "data": _val})
     return field_values
 
 
@@ -41,19 +39,15 @@ def variables_relevance():
     return {}, 200
 
 
-@variables.route("/year")
-def variables_year():
-    years_list = [
-        {
-            "start": int(start) if start != "" else None,
-            "end": int(end) if end != "" else None,
-            "duration": int(end) - int(start) if end and start else None,
-        }
-        for start, end in zip(
-            get_all_field_values(BODATA_CLASS.start_year, False), get_all_field_values(BODATA_CLASS.end_year, False)
-        )
-    ]
-    print(years_list)
+@variables.route("/start-year")
+def variables_start_year():
+    print(get_all_field_values(BODATA_CLASS.start_year))
+    return {}, 200
+
+
+@variables.route("/end-year")
+def variables_end_year():
+    print(get_all_field_values(BODATA_CLASS.end_year))
     return {}, 200
 
 
