@@ -5,12 +5,12 @@ from ...database.models import db, BODATA_CLASS
 variables = Blueprint("variables", __name__, url_prefix="/variables")
 
 
-def get_all_field_values(field):
+def get_all_field_values(field, default):
     field_values = []
     iter_obj = db.session.execute(db.select(field))
     for i, item in enumerate(iter_obj):
-        _val = item[0] if item[0] else None
-        field_values.append({"id": i, "data": _val})
+        _val = item[0] if item[0] else default
+        field_values.append({"id": i, "value": _val})
     return field_values
 
 
@@ -18,52 +18,62 @@ def get_all_field_values(field):
 def variables_home():
     return {
         "url": "/variables",
+        "subdirs": [
+            "/variables/intensity",
+            "/variables/likelihood",
+            "/variables/relevance",
+            "/variables/start-year",
+            "/variables/end-year",
+            "/variables/country",
+            "/variables/topic",
+            "/variables/region",
+        ],
     }, 200
 
 
 @variables.route("/intensity")
 def variables_intensity():
-    print(get_all_field_values(BODATA_CLASS.intensity))
-    return {}, 200
+    intensity = get_all_field_values(BODATA_CLASS.intensity, 0)
+    return {"results": intensity}, 200
 
 
 @variables.route("/likelihood")
 def variables_likelihood():
-    print(get_all_field_values(BODATA_CLASS.likelihood))
-    return {}, 200
+    likelihood = get_all_field_values(BODATA_CLASS.likelihood, 0)
+    return {"results": likelihood}, 200
 
 
 @variables.route("/relevance")
 def variables_relevance():
-    print(get_all_field_values(BODATA_CLASS.relevance))
-    return {}, 200
+    relevance = get_all_field_values(BODATA_CLASS.relevance, 0)
+    return {"results": relevance}, 200
 
 
 @variables.route("/start-year")
 def variables_start_year():
-    print(get_all_field_values(BODATA_CLASS.start_year))
-    return {}, 200
+    start_year = get_all_field_values(BODATA_CLASS.start_year, "0000")
+    return {"results": start_year}, 200
 
 
 @variables.route("/end-year")
 def variables_end_year():
-    print(get_all_field_values(BODATA_CLASS.end_year))
-    return {}, 200
+    end_year = get_all_field_values(BODATA_CLASS.end_year, "9999")
+    return {"results": end_year}, 200
 
 
 @variables.route("/country")
 def variables_country():
-    print(get_all_field_values(BODATA_CLASS.country))
-    return {}, 200
+    country = get_all_field_values(BODATA_CLASS.country, "None")
+    return {"results": country}, 200
 
 
 @variables.route("/topic")
 def variables_topics():
-    print(get_all_field_values(BODATA_CLASS.topic))
-    return {}, 200
+    topic = get_all_field_values(BODATA_CLASS.topic, "None")
+    return {"results": topic}, 200
 
 
 @variables.route("/region")
 def variables_region():
-    print(get_all_field_values(BODATA_CLASS.region))
-    return {}, 200
+    region = get_all_field_values(BODATA_CLASS.region, "None")
+    return {"results": region}, 200
