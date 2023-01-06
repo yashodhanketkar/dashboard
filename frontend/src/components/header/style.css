@@ -1,0 +1,9 @@
+header {
+    background-color: beige;
+    height: 5vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}

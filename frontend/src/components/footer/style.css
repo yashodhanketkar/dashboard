@@ -1,0 +1,7 @@
+footer {
+    background-color: beige;
+    position: fixed;
+    height: 3vh;
+    width: 100vw;
+    bottom: 0;
+}

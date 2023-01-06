@@ -1,10 +1,10 @@
 import "./App.css";
-import Intensity from "./pages/intensity";
+import Layout from "./pages/layout";
 
 function App() {
   return (
     <>
-      <Intensity start={0} limit={10} width={600} height={400} />
+      <Layout />
     </>
   );
 }

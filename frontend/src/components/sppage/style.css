@@ -1,0 +1,33 @@
+.spage {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 5vh;
+    bottom: 3vh;
+    left: 15vw;
+    width: 85vw;
+    background-color: red;
+}
+
+.index-item {
+    font-size: large;
+    font-weight: 500;
+}
+
+.row {
+    display: flex;
+}
+
+.id {
+    display: flex;
+    flex-direction: row;
+    width: 15vw;
+    max-width: 15vw;
+    background-color: aqua;
+}
+
+.value {
+    background-color: aquamarine;
+    width: 70vw;
+    max-width: 70vw;
+}

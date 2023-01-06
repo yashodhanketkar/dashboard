@@ -48,9 +48,6 @@ function LineChart(
 
   var TickSpacer = getTickSpacer(width, X.length);
 
-  var lou = getTickSpacer(5);
-  console.log(`lou: ${lou}`);
-
   if (xDomain === undefined) xDomain = d3.extent(X);
   if (yDomain === undefined) yDomain = [0, d3.max(Y)];
 
