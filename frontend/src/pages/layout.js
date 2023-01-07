@@ -1,17 +1,38 @@
 import React from "react";
-import SPPage from "../components/sppage";
-import Country from "./country";
+import Dashboard from "./dashboard";
+import { Route, Routes } from "react-router-dom";
+import {
+  Intensity,
+  Likelihood,
+  Relevance,
+  StartYear,
+  EndYear,
+  Country,
+  Topic,
+  Region,
+} from "./variables";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Sidebar from "../components/sidebar";
 
 export default function Layout() {
-  var data = Country({ start: 0, limit: 10 });
   return (
     <>
       <Header />
-      <Sidebar />
-      <SPPage data={data} />
+      <div>
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/intensity" element={<Intensity />} />
+          <Route path="/likelihood" element={<Likelihood />} />
+          <Route path="/relevance" element={<Relevance />} />
+          <Route path="/start-year" element={<StartYear />} />
+          <Route path="/end-year" element={<EndYear />} />
+          <Route path="/country" element={<Country />} />
+          <Route path="/topic" element={<Topic />} />
+          <Route path="/region" element={<Region />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );

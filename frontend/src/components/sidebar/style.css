@@ -1,8 +1,10 @@
 .sidebar {
     position: fixed;
-    background-color: goldenrod;
+    background-color: #B1A6A4;
     top: 5vh;
     bottom: 3vh;
     height: -5vh + 100vh - 3vh;
     width: 15vw;
+    display: flex;
+    flex-direction: column;
 }

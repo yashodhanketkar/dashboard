@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./country.css";
+import React from "react";
 
-export default function Country({ start, limit }) {
-  const [data, setData] = useState([]);
+export default function useAPI({ url, start, limit }) {
+  const [data, setData] = React.useState([]);
 
-  useEffect(() => {
-    const url = "variables/country";
-
+  React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -17,9 +14,8 @@ export default function Country({ start, limit }) {
         console.log("error", error);
       }
     };
-
     fetchData();
-  }, [start, limit]);
+  }, [url, start, limit]);
 
   return data;
 }

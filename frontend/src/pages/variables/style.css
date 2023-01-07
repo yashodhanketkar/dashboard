@@ -1,0 +1,30 @@
+.spage {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 5vh;
+    bottom: 3vh;
+    left: 15vw;
+    width: 85vw;
+    background-color: #F2F1EF;
+}
+
+.index-item {
+    font-size: large;
+    font-weight: 500;
+}
+
+table {
+    background-color: darkgray;
+    border: 1px solid gainsboro;
+}
+
+th, td {
+    min-width: 1rem;
+    max-width: 20rem;
+    border: .2px solid gainsboro;
+}
+
+.tb-header {
+    font-weight: 700;
+}
