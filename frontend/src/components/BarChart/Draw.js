@@ -25,8 +25,6 @@ function BarChart(
     textColor = "gainsboro",
   } = {}
 ) {
-  console.log(data);
-
   const X = d3.map(data, x);
   const Y = d3.map(data, y);
 

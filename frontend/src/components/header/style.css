@@ -1,9 +1,15 @@
 header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
     background-color: #B1A6A4;
     height: 5vh;
     width: 100vw;
     position: fixed;
     top: 0;
-    font-size: 2rem;
-    font-weight: 700;
+}
+
+.app-name {
+    font-weight: 900;
+    font-size:x-large;
 }

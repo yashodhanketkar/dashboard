@@ -1,4 +1,4 @@
-.spage {
+.content {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -7,4 +7,5 @@
     left: 15vw;
     width: 85vw;
     background-color: #F2F1EF;
+    overflow: scroll;
 }

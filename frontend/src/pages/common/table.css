@@ -1,0 +1,23 @@
+.index-item {
+    font-size: large;
+    font-weight: 500;
+}
+
+table {
+    background-color: darkgray;
+    border: 1px solid gainsboro;
+}
+
+td {
+    min-width: 1rem;
+    max-width: 20rem;
+    border: .2px solid gainsboro;
+}
+
+.tb-header {
+    font-weight: 700;
+}
+
+.id-column {
+    width: 3rem;
+}
