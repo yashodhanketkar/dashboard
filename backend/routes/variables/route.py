@@ -5,6 +5,33 @@ from ...database.models import db, BODATA_CLASS
 variables = Blueprint("variables", __name__, url_prefix="/variables")
 
 
+def get_item(id):
+    print(id)
+    item: BODATA_CLASS = BODATA_CLASS.query.filter_by(id=id)
+
+    d = {
+        "id": id,
+        "end_year": item[0].end_year,
+        "intensity": item[0].intensity,
+        "sector": item[0].sector,
+        "topic": item[0].topic,
+        "insight": item[0].insight,
+        "url": item[0].url,
+        "region": item[0].region,
+        "start_year": item[0].start_year,
+        "impact": item[0].impact,
+        "added": item[0].added,
+        "published": item[0].published,
+        "country": item[0].country,
+        "relevance": item[0].relevance,
+        "pestle": item[0].pestle,
+        "title": item[0].title,
+        "likelihood": item[0].likelihood,
+    }
+
+    return d
+
+
 def assign_all_fields():
     iter_obj = db.session.execute(db.select(BODATA_CLASS))
     field_values = []
@@ -12,14 +39,22 @@ def assign_all_fields():
         field_values.append(
             {
                 "id": i,
-                "intensity": item[0].intensity,
-                "likelihood": item[0].likelihood,
-                "relevance": item[0].relevance,
-                "start_year": item[0].start_year,
                 "end_year": item[0].end_year,
-                "country": item[0].country,
+                "intensity": item[0].intensity,
+                "sector": item[0].sector,
                 "topic": item[0].topic,
+                "insight": item[0].insight,
+                "url": item[0].url,
                 "region": item[0].region,
+                "start_year": item[0].start_year,
+                "impact": item[0].impact,
+                "added": item[0].added,
+                "published": item[0].published,
+                "country": item[0].country,
+                "relevance": item[0].relevance,
+                "pestle": item[0].pestle,
+                "title": item[0].title,
+                "likelihood": item[0].likelihood,
             }
         )
     return field_values
@@ -69,6 +104,12 @@ def variables_relevance():
     return {"results": relevance}, 200
 
 
+@variables.route("/impact")
+def variables_impact():
+    impact = get_field_values(BODATA_CLASS.impact, "0")
+    return {"results": impact}, 200
+
+
 @variables.route("/start-year")
 def variables_start_year():
     start_year = get_field_values(BODATA_CLASS.start_year, "0000")
@@ -103,3 +144,10 @@ def variables_region():
 def variable_all():
     values = assign_all_fields()
     return {"results": values}, 200
+
+
+@variables.route("/<int:id>")
+def variable_item(id):
+    print("Single item called", id)
+    values = get_item(id)
+    return values, 200

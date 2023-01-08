@@ -2,7 +2,11 @@ import React from "react";
 import AllAPI from "../../api";
 import Comp from "./comp";
 
-export default function Dashboard() {
-  const data = AllAPI({ start: 0, limit: 1000 });
+function GetImportant({ start, limit }) {
+  const data = AllAPI({ start, limit });
   return <Comp data={data} />;
+}
+
+export default function Dashboard() {
+  return <GetImportant />;
 }

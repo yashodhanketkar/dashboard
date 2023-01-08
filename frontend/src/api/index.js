@@ -16,6 +16,14 @@ export function EndYearAPI({ start, limit }) {
   });
 }
 
+export function ImpactAPI({ start, limit }) {
+  return useAPI({
+    url: "variables/impact",
+    start: start,
+    limit: limit,
+  });
+}
+
 export function IntensityAPI({ start, limit }) {
   return useAPI({ url: "variables/intensity", start: start, limit: limit });
 }

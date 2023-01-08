@@ -1,8 +1,8 @@
 // import React, { useState } from "react";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 
-import {
+import AllAPI, {
   IntensityAPI,
   LikelihoodAPI,
   RelevanceAPI,
@@ -11,47 +11,59 @@ import {
   CountryAPI,
   TopicAPI,
   RegionAPI,
+  ImpactAPI,
 } from "../../api";
+import LayoutSI from "./layout_si";
 import LayoutSV from "./layout_sv";
 
-export function Intensity({ start, limit }) {
+function Intensity({ start, limit }) {
   const data = IntensityAPI({ start, limit });
   return <LayoutSV data={data} name="Intensity" />;
 }
 
-export function Likelihood({ start, limit }) {
+function Likelihood({ start, limit }) {
   const data = LikelihoodAPI({ start, limit });
   return <LayoutSV data={data} name="Likelihood" />;
 }
 
-export function Relevance({ start, limit }) {
+function Relevance({ start, limit }) {
   const data = RelevanceAPI({ start, limit });
   return <LayoutSV data={data} name="Relevance" />;
 }
 
-export function StartYear({ start, limit }) {
+function StartYear({ start, limit }) {
   const data = StartYearAPI({ start, limit });
   return <LayoutSV data={data} name="StarYear" />;
 }
 
-export function EndYear({ start, limit }) {
+function EndYear({ start, limit }) {
   const data = EndYearAPI({ start, limit });
   return <LayoutSV data={data} name="End year" />;
 }
 
-export function Country({ start, limit }) {
+function Country({ start, limit }) {
   const data = CountryAPI({ start, limit });
   return <LayoutSV data={data} name="Country" />;
 }
 
-export function Topic({ start, limit }) {
+function Topic({ start, limit }) {
   const data = TopicAPI({ start, limit });
   return <LayoutSV data={data} name="Topic" />;
 }
 
-export function Region({ start, limit }) {
+function Region({ start, limit }) {
   const data = RegionAPI({ start, limit });
   return <LayoutSV data={data} name="Region" />;
+}
+
+function Impact({ start, limit }) {
+  const data = ImpactAPI({ start, limit });
+  return <LayoutSV data={data} name="Impact" />;
+}
+
+export function Item() {
+  const id = useParams();
+  return <LayoutSI id={id} />;
 }
 
 export default function Variables() {
@@ -65,7 +77,8 @@ export default function Variables() {
       <Route path="/country" element={<Country />} />
       <Route path="/topic" element={<Topic />} />
       <Route path="/region" element={<Region />} />
-      {/* <Route path="/region" element={<Region start={start} limit={limit} />} /> */}
+      <Route path="/impact" element={<Impact />} />
+      <Route path="/:id" element={<Item />} />
     </Routes>
   );
 }

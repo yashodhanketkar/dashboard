@@ -1,10 +1,29 @@
-.spage {
+.variable-limit-wrapper {
     position: fixed;
     display: flex;
     flex-direction: column;
-    top: 5vh;
-    bottom: 3vh;
-    left: 15vw;
-    width: 85vw;
-    background-color: #F2F1EF;
+    top: 5.5vh;
+    right: 1vw;
+    opacity: .01;
+}
+
+.variable-limit-wrapper:hover {
+    background-color: #B1A6A4;
+    opacity: 1;
+}
+
+.variable-limit {
+    display: flex;
+    margin-left: 1vw;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+}
+
+.variable-limit label {
+    width: 1.5vw;
+}
+
+.variable-limit input {
+    margin-right: 1vw;
+    width: 5vw;
 }

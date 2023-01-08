@@ -1,6 +1,6 @@
 import React from "react";
 import Dashboard from "./dashboard";
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import Variables from "./variables";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -14,10 +14,10 @@ export default function Layout() {
       <Header />
       <Sidebar />
       <Routes>
-        <Route path="*" element={<Variables />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/barchart" element={<Barchart />} />
         <Route path="/linechart" element={<Linechart />} />
+        <Route path="/*" element={<Variables />} />
       </Routes>
       <Footer />
     </>
