@@ -6,6 +6,7 @@ export default function Comp() {
     <div className="sidebar">
       <a href="/">Home</a>
       <a href="/barchart">Barchart</a>
+      <a href="/linechart">Linechart</a>
     </div>
   );
 }

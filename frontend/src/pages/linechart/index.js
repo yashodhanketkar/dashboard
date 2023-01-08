@@ -1,12 +1,12 @@
 import { useState } from "react";
 import {
-  IntensityBarChart,
-  LikelihoodBarChart,
-  RelevanceBarChart,
+  IntensityLineChart,
+  LikelihoodLineChart,
+  RelevanceLineChart,
 } from "./charts";
 import "../common/charts.css";
 
-export default function Barchart() {
+export default function Linechart() {
   const [start, setStart] = useState(0);
   const [limit, setLimit] = useState(10);
   const [chartType, setChartType] = useState("Intensity");
@@ -26,9 +26,9 @@ export default function Barchart() {
     setChartType(data);
   };
 
-  const Intensitychart = IntensityBarChart({ start, limit });
-  const Likelihoodchart = LikelihoodBarChart({ start, limit });
-  const Relevancechart = RelevanceBarChart({ start, limit });
+  const Intensitychart = IntensityLineChart({ start, limit });
+  const Likelihoodchart = LikelihoodLineChart({ start, limit });
+  const Relevancechart = RelevanceLineChart({ start, limit });
 
   return (
     <>
@@ -54,7 +54,7 @@ export default function Barchart() {
               <input
                 className="chart-input"
                 type={"text"}
-                id="start-barchart"
+                id="start-linechart"
                 onKeyUp={startHandler}
               />
             </div>
@@ -63,7 +63,7 @@ export default function Barchart() {
               <input
                 className="chart-input"
                 type={"text"}
-                id="limit-barchart"
+                id="limit-linechart"
                 onKeyUp={limitHandler}
               />
             </div>
