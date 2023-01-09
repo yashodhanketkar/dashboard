@@ -1,8 +1,7 @@
-// import React, { useState } from "react";
 import React from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 
-import AllAPI, {
+import {
   IntensityAPI,
   LikelihoodAPI,
   RelevanceAPI,
@@ -65,8 +64,6 @@ export function Item() {
   const id = useParams();
   return <LayoutSI id={id} />;
 }
-
-var prefix = "var";
 
 export default function Variables() {
   return (

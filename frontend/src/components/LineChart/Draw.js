@@ -34,6 +34,7 @@ function LineChart(
     yFormat,
     yLabel,
     color = "currentColor",
+    textColor = "black",
     strokeLinecap = "round",
     strokeLinejoin = "round",
     strokeWidth = 1.5,
@@ -90,10 +91,10 @@ function LineChart(
     .call((g) =>
       g
         .append("text")
-        .attr("x", -marginLeft)
+        .attr("x", marginLeft / 3)
         .attr("y", 10)
-        .attr("fill", "currentColor")
-        .attr("text-anchor", "start")
+        .attr("fill", textColor)
+        .attr("text-anchor", "end")
         .text(yLabel)
     );
 

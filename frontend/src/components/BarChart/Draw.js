@@ -70,10 +70,10 @@ function BarChart(
     .call((g) =>
       g
         .append("text")
-        .attr("x", -marginLeft)
+        .attr("x", marginLeft / 3)
         .attr("y", 10)
-        .attr("fill", textColor)
-        .attr("text-anchor", "start")
+        .attr("fill", "black")
+        .attr("text-anchor", "end")
         .text(yLabel)
     );
 

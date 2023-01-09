@@ -11,7 +11,7 @@ function getFontSize({ radius }) {
   }
 }
 
-const Draw = ({ data, start, limit, field, width, height }) => {
+export default function Draw({ data, start, limit, field, width, height }) {
   const radius = Math.min(width, height);
   const fontSize = getFontSize({ radius });
 
@@ -21,12 +21,12 @@ const Draw = ({ data, start, limit, field, width, height }) => {
 
   d3.select("#pie-chart")
     .append("g")
-    .attr("transform", `translate(${radius / 4},${radius / 4})`);
+    .attr("transform", `translate(${radius / 2},${radius / 2})`);
 
   d3.select("#pie-chart")
     .append("g")
     .append("text")
-    .attr("transform", `translate(${radius / 4},${radius / 2 + 20})`)
+    .attr("transform", `translate(${radius / 2},${radius / 2 + 5})`)
     .attr("text-anchor", "middle")
     .text(field)
     .attr("class", "title");
@@ -37,12 +37,11 @@ const Draw = ({ data, start, limit, field, width, height }) => {
     .sortValues((a, b) => (a < b ? 1 : -1));
 
   var adata = angleGen(data);
-  console.log(adata);
 
   var arcGen = d3
     .arc()
-    .innerRadius(radius / 8)
-    .outerRadius(radius / 4);
+    .innerRadius(radius / 6)
+    .outerRadius(radius / 3);
 
   d3.select("#pie-chart g")
     .selectAll("path")
@@ -63,24 +62,22 @@ const Draw = ({ data, start, limit, field, width, height }) => {
       "x",
       (d) =>
         d3.pointRadial(
-          (d.startAngle + d.endAngle - 0.1) / 2,
-          (radius / 6 + radius / 4) / 2
+          (d.startAngle + d.endAngle) / 2,
+          (radius / 5 + radius / 3) / 2
         )[0]
     )
     .attr(
       "y",
       (d) =>
         d3.pointRadial(
-          (d.startAngle + d.endAngle - 0.1) / 2,
-          (radius / 6 + radius / 4) / 2
+          (d.startAngle + d.endAngle) / 2,
+          (radius / 5 + radius / 3) / 2
         )[1]
     )
     .attr("text-anchor", "middle")
-    .text((d) => `${d.data.id}(${d.data.value})`)
+    .text((d) => `${d.data.value}`)
     .attr("font-size", fontSize)
-    .attr("transform", `translate(${radius / 4},${radius / 4})`);
+    .attr("transform", `translate(${radius / 2},${radius / 2})`);
 
   return <svg id="pie-chart" width={width} height={height} />;
-};
-
-export default Draw;
+}

@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import Sidebar from "../components/sidebar";
 import Barchart from "./barchart";
 import Linechart from "./linechart";
+import Piechart from "./piechart";
 
 export default function Layout() {
   return (
@@ -17,7 +18,8 @@ export default function Layout() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/barchart" element={<Barchart />} />
         <Route path="/linechart" element={<Linechart />} />
-        <Route path="/*" element={<Variables />} />
+        <Route path="/piechart" element={<Piechart />} />
+        <Route path="*" element={<Variables />} />
       </Routes>
       <Footer />
     </>
