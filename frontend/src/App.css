@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #2F3349;
+  color: #b4b4b4;
+}
+
+a {
+  color: #b4b4b4;
+}
+
+a:hover{
+  color: #ffffff;
+}

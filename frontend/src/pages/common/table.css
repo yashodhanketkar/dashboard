@@ -1,27 +1,34 @@
 table {
-    background-color: darkgray;
-    border: 1px solid gainsboro;
+    background-color: #2F3349;
+    border: 1px solid grey;
+    border-collapse:collapse;
+    margin-top: 1vh;
+    margin-right: 1vh;
+    box-shadow: 1vh 1vh 2vh 0 black;
+}
+
+th {
+    background-color: #404563;
+    border: 1px solid #646464;
 }
 
 td {
     min-width: 1rem;
     max-width: 20rem;
-    border: .2px solid gainsboro;
+    border: 1px solid #646464;
+    border-radius: .5rem;
 }
 
 .index-item {
     font-size: large;
     font-weight: 500;
 }
-
+/* 
 .tb-header {
     font-weight: 700;
-}
+    background-color: rgb(20, 0, 120);
+} */
 
 .id-column {
     width: 3rem;
 }
-/* 
-.name-column {
-    width: 10rem;
-} */

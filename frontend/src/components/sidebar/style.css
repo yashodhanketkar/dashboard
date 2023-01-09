@@ -1,10 +1,27 @@
 .sidebar {
     position: fixed;
-    background-color: #B1A6A4;
+    display: flex;
+    background-color: #2F3349;
     top: 5vh;
     bottom: 3vh;
     height: -5vh + 100vh - 3vh;
     width: 15vw;
     display: flex;
     flex-direction: column;
+    box-shadow: 0vw 1vw 1vw 0vw black;
+}
+
+.sidebar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    margin-top: 1vh;
+    border: 2px #404563 solid;
+    border-radius: 5vh;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #404563;
 }

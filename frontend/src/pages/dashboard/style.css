@@ -2,14 +2,24 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    top: 5.5vh;
-    right: 1vw;
-    opacity: .01;
+    bottom: 3.5vh;
+    width: 15vw;
+    left: 0vw;
 }
 
-.filter-wrapper:hover {
-    background-color: #B1A6A4;
+.filter-wrapper .filter-controls {
+    opacity: 0;
+}
+
+.filter-wrapper .filter-controls:hover {
+    background-color: #404563;
     opacity: 1;
+}
+
+.filter-wrapper button {
+    background-color: #404563;
+    height: 3vh;
+    border: 0;
 }
 
 .filter {
@@ -19,9 +29,14 @@
     margin-bottom: .5vh;
 }
 
-.filter label {
+.filter label, .filter-wrapper label {
+    color: #b4b4b4;
     text-align: right;
     width: 40%;
+}
+
+.filter label:hover {
+    color: white;
 }
 
 .filter label::after {

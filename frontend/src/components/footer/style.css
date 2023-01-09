@@ -1,7 +1,29 @@
 footer {
-    background-color: #B1A6A4;
     position: fixed;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    background-color: #2F3349;
     height: 3vh;
-    width: 100vw;
-    bottom: 0;
+    width: 15vw;
+    bottom: 0vh;
+}
+
+.app-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    width: 15vw;
+    height: 100%;
+    border-top: 1px solid #404563;
+    box-shadow: 0vw 1.2vw 1vw 0vw black;
+}
+
+.app-footer a {
+    text-decoration: none;
+}
+
+.app-footer a:hover {
+    color: white;
 }

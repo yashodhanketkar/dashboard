@@ -75,53 +75,58 @@ export default function Comp({ data }) {
   return (
     <div className="content">
       <div className="filter-wrapper">
-        {filterDictDefault.map((d) => (
-          <div className="filter" key={d.name}>
-            <label>{d.label}</label>
-            <input
-              className="filter-text"
-              type="text"
-              name={d.name}
-              onKeyUp={(e) => d.handler(e, setfilterDict)}
-            />
-          </div>
-        ))}
+        <button className="toggle-filter">
+          <label>Filter</label>
+        </button>
+        <div className="filter-controls">
+          {filterDictDefault.map((d) => (
+            <div className="filter" key={d.name}>
+              <label>{d.label}</label>
+              <input
+                className="filter-text"
+                type="text"
+                name={d.name}
+                onKeyUp={(e) => d.handler(e, setfilterDict)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       <table>
         <tbody>
           <tr className="row">
-            <td
+            <th
               className="tb-header id-column"
               id="sort-id"
               onClick={handleSort}
             >
               ID
-            </td>
-            <td className="tb-header" id="sort-intensity" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-intensity" onClick={handleSort}>
               <a href="/intensity">Intensity</a>
-            </td>
-            <td className="tb-header" id="sort-likelihood" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-likelihood" onClick={handleSort}>
               <a href="/likelihood">Likelihood</a>
-            </td>
-            <td className="tb-header" id="sort-relevance" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-relevance" onClick={handleSort}>
               <a href="/relevance">Relevance</a>
-            </td>
-            <td className="tb-header" id="sort-startYear" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-startYear" onClick={handleSort}>
               <a href="/start-year">Start year</a>
-            </td>
-            <td className="tb-header" id="sort-endYear" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-endYear" onClick={handleSort}>
               <a href="/end-year">End year</a>
-            </td>
-            <td className="tb-header" id="sort-country" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-country" onClick={handleSort}>
               <a href="/country">Country</a>
-            </td>
-            <td className="tb-header" id="sort-topic" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-topic" onClick={handleSort}>
               <a href="/topic">Topic</a>
-            </td>
-            <td className="tb-header" id="sort-region" onClick={handleSort}>
+            </th>
+            <th className="tb-header" id="sort-region" onClick={handleSort}>
               <a href="/region">Region</a>
-            </td>
+            </th>
           </tr>
           {data
             .sort((a, b) => sortBy(a, b, sortColumn, reverseColumn))
