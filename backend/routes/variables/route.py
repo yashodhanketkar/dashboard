@@ -6,8 +6,8 @@ variables = Blueprint("variables", __name__, url_prefix="/variables")
 
 
 def get_item(id):
-    print(id)
-    item: BODATA_CLASS = BODATA_CLASS.query.filter_by(id=id)
+    db_index = id + 1  # db_index is offseted by 1
+    item: BODATA_CLASS = BODATA_CLASS.query.filter_by(id=db_index)
 
     d = {
         "id": id,
@@ -25,6 +25,7 @@ def get_item(id):
         "country": item[0].country,
         "relevance": item[0].relevance,
         "pestle": item[0].pestle,
+        "source": item[0].source,
         "title": item[0].title,
         "likelihood": item[0].likelihood,
     }
@@ -53,6 +54,7 @@ def assign_all_fields():
                 "country": item[0].country,
                 "relevance": item[0].relevance,
                 "pestle": item[0].pestle,
+                "source": item[0].source,
                 "title": item[0].title,
                 "likelihood": item[0].likelihood,
             }
@@ -146,7 +148,7 @@ def variable_all():
     return {"results": values}, 200
 
 
-@variables.route("/<int:id>")
+@variables.route("/item/<int:id>")
 def variable_item(id):
     print("Single item called", id)
     values = get_item(id)

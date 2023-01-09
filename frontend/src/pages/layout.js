@@ -1,6 +1,6 @@
 import React from "react";
 import Dashboard from "./dashboard";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Variables from "./variables";
 import Header from "../components/header";
 import Footer from "../components/footer";

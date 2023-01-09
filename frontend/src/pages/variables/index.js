@@ -66,6 +66,8 @@ export function Item() {
   return <LayoutSI id={id} />;
 }
 
+var prefix = "var";
+
 export default function Variables() {
   return (
     <Routes>
@@ -78,7 +80,7 @@ export default function Variables() {
       <Route path="/topic" element={<Topic />} />
       <Route path="/region" element={<Region />} />
       <Route path="/impact" element={<Impact />} />
-      <Route path="/:id" element={<Item />} />
+      <Route path="item/:id" element={<Item />} />
     </Routes>
   );
 }

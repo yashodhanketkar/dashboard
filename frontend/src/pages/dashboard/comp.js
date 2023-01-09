@@ -1,62 +1,93 @@
 import React, { useState } from "react";
+import { sortBy } from "./sorters";
+import {
+  handleFilterEndYear,
+  handleFilterTopics,
+  handleFilterSector,
+  handleFilterRegion,
+  handleFilterPestle,
+  handleFilterSource,
+  handleFilterCountry,
+} from "./handlers";
+
 import "./style.css";
 import "../common/table.css";
 import "../common/common.css";
 
-function sortBy(a, b, sortByField, reverseField) {
-  let itemA;
-  let itemB;
-
-  if (sortByField === "id") {
-    itemA = a.id;
-    itemB = b.id;
-  } else if (sortByField === "intensity") {
-    itemA = a.intensity;
-    itemB = b.intensity;
-  } else if (sortByField === "likelihood") {
-    itemA = a.likelihood;
-    itemB = b.likelihood;
-  } else if (sortByField === "relevance") {
-    itemA = a.relevance;
-    itemB = b.relevance;
-  } else if (sortByField === "start year") {
-    itemA = a.start_year;
-    itemB = b.start_year;
-  } else if (sortByField === "end year") {
-    itemA = a.end_year;
-    itemB = b.end_year;
-  } else if (sortByField === "country") {
-    itemA = a.country;
-    itemB = b.country;
-  } else if (sortByField === "topic") {
-    itemA = a.topic;
-    itemB = b.topic;
-  } else if (sortByField === "region") {
-    itemA = a.region;
-    itemB = b.region;
-  }
-
-  if (itemA > itemB) {
-    return 1 * reverseField;
-  } else {
-    return -1 * reverseField;
-  }
-}
-
 export default function Comp({ data }) {
   const [sortColumn, setSortColumn] = useState("id");
   const [reverseColumn, setReverseColumn] = useState(1);
+  const [filterDict, setfilterDict] = useState({
+    end_year: "",
+    topic: "",
+    sector: "",
+    region: "",
+    pestle: "",
+    source: "",
+    country: "",
+  });
 
-  let handleSort = (e) => {
-    let data = e.target.textContent.toLowerCase();
-    setReverseColumn(-1 * reverseColumn);
+  function handleSort(e) {
+    const data = e.target.textContent.toLowerCase();
+    const columnOrder = -1 * reverseColumn;
+    setReverseColumn(columnOrder);
     setSortColumn(data);
-  };
+  }
 
-  console.log(data);
+  const filterDictDefault = [
+    {
+      label: "End Year",
+      name: "end_year",
+      handler: handleFilterEndYear,
+    },
+    {
+      label: "Topic",
+      name: "topic",
+      handler: handleFilterTopics,
+    },
+    {
+      label: "Sector",
+      name: "sector",
+      handler: handleFilterSector,
+    },
+    {
+      label: "Region",
+      name: "region",
+      handler: handleFilterRegion,
+    },
+    {
+      label: "Pestle",
+      name: "pestle",
+      handler: handleFilterPestle,
+    },
+    {
+      label: "Source",
+      name: "source",
+      handler: handleFilterSource,
+    },
+    {
+      label: "Country",
+      name: "country",
+      handler: handleFilterCountry,
+    },
+  ];
 
   return (
     <div className="content">
+      <div className="filter-wrapper">
+        {filterDictDefault.map((d) => (
+          <div className="filter" key={d.name}>
+            <label>{d.label}</label>
+            <input
+              className="filter-text"
+              type="text"
+              name={d.name}
+              onKeyUp={(e) => d.handler(e, setfilterDict)}
+            />
+          </div>
+        ))}
+      </div>
+
       <table>
         <tbody>
           <tr className="row">
@@ -94,10 +125,33 @@ export default function Comp({ data }) {
           </tr>
           {data
             .sort((a, b) => sortBy(a, b, sortColumn, reverseColumn))
+            .filter((d) =>
+              d.end_year
+                .toLowerCase()
+                .includes(filterDict.end_year.toLowerCase())
+            )
+            .filter((d) =>
+              d.topic.toLowerCase().includes(filterDict.topic.toLowerCase())
+            )
+            .filter((d) =>
+              d.sector.toLowerCase().includes(filterDict.sector.toLowerCase())
+            )
+            .filter((d) =>
+              d.region.toLowerCase().includes(filterDict.region.toLowerCase())
+            )
+            .filter((d) =>
+              d.pestle.toLowerCase().includes(filterDict.pestle.toLowerCase())
+            )
+            .filter((d) =>
+              d.source.toLowerCase().includes(filterDict.source.toLowerCase())
+            )
+            .filter((d) =>
+              d.country.toLowerCase().includes(filterDict.country.toLowerCase())
+            )
             .map((d) => (
               <tr key={d.id} className="row">
                 <td key={d.id}>
-                  <a href={d.id}>{d.id}</a>
+                  <a href={"item/" + d.id}>{d.id}</a>
                 </td>
                 <td>{d.intensity}</td>
                 <td>{d.likelihood}</td>

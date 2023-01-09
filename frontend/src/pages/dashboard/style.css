@@ -1,0 +1,35 @@
+.filter-wrapper {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 5.5vh;
+    right: 1vw;
+    opacity: .01;
+}
+
+.filter-wrapper:hover {
+    background-color: #B1A6A4;
+    opacity: 1;
+}
+
+.filter {
+    display: flex;
+    margin-left: 1vw;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+}
+
+.filter label {
+    text-align: right;
+    width: 40%;
+}
+
+.filter label::after {
+    content: ":";
+}
+
+.filter input {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 60%;
+}

@@ -4,7 +4,7 @@ export default function LayoutSI({ id }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch(`/variables/${id["id"]}`)
+    fetch(`/variables/item/${id["id"]}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);
@@ -19,10 +19,18 @@ export default function LayoutSI({ id }) {
           </tr>
         </thead>
         {Object.keys(data).map((key, i) => (
-          <tr key={i}>
-            <td>{key}</td>
-            <td>{data[key]}</td>
-          </tr>
+          <tbody key={i}>
+            <tr>
+              <td>{key}</td>
+              {key === "url" ? (
+                <td>
+                  <a href={data[key]}>{data[key]}</a>
+                </td>
+              ) : (
+                <td>{data[key]}</td>
+              )}
+            </tr>
+          </tbody>
         ))}
       </table>
     </div>
