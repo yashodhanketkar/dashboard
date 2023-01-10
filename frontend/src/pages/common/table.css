@@ -1,8 +1,7 @@
 table {
     background-color: #2F3349;
     border-collapse:collapse;
-    margin-top: 1vh;
-    margin-right: 1vh;
+    margin: 1vh;
     box-shadow: 0 0 2vh 0 black;
 }
 
@@ -19,6 +18,14 @@ th {
     height: 5vh;
 }
 
+th:hover {
+    background-color: #7367F0;
+}
+
+th:hover a {
+    color: white;
+}
+
 th a, td a {
     text-decoration: none;
 }
@@ -29,9 +36,19 @@ th a:hover, td a:hover {
 
 td {
     border-bottom: 1px solid #404563;
-    padding-left: 1vw;
-    min-width: 1rem;
-    max-width: 20rem;
+    border-left: .1vh solid #404563;
+    border-right: .1vh solid #404563;
+}
+
+.numeric {
+    width: 5vw;
+    text-align: center;
+}
+
+.content-table {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .index-item {
@@ -44,7 +61,38 @@ td {
 }
 
 .item-display-table {
+    padding-left: 1vw;
     height: 4.5vh;
-    border-left: .1vh solid #404563;
-    border-right: .1vh solid #404563;
+}
+
+td.item-display-table {
+    text-align: left;
+}
+
+.page-button, .page-select {
+    height: 3vh;
+    width: 5vh;
+}
+
+.table-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.table-button-wrapper > * {
+    background-color: #2F3349;
+    border: 1px solid #404563;
+    border-radius: 3vh;
+    color: white;
+}
+
+.table-button-wrapper:hover > * {
+    background-color: #404563;
+}
+
+.table-button-wrapper button:hover, .table-button-wrapper select:hover {
+    background-color: #7367F0;
 }

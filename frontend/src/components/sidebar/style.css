@@ -27,7 +27,6 @@
 }
 
 .sidebar a.active {
-    /* background-color: red; */
     background-color: #7367F0;
     color: white;
 }

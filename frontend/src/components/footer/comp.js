@@ -5,7 +5,13 @@ export default function Comp() {
   return (
     <footer>
       <div className="app-footer">
-        <a href="github.com">github</a>
+        <a
+          href="https://github.com/yashodhanketkar"
+          target="_blank"
+          rel="noopenener noreferrer"
+        >
+          github
+        </a>
       </div>
     </footer>
   );

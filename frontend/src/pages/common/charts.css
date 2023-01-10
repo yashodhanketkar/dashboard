@@ -7,10 +7,53 @@
 .chart-input {
     margin-right: 0.5vw;
     max-width: 10vw;
+    height: 3vh;
+    width: 5vh;
+}
+
+label.chart-input {
+    color: white;
+}
+
+input.chart-input {
+    font-size: large;
+    text-align: center;
+    border: 1px solid #7367F0;
+}
+
+.content-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+    padding: 3rem;
 }
 
 .chart-area {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 0 5px 0 black;
+    border-radius: 10px;
+}
+
+.chart-draw-area {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
     align-items: center;
+}
+
+.chart-area-options {
+    margin-top: 1vh;
+    border-radius: 0;
+    border: 0;
+    height: 2rem;
+    width: 10rem;
+    background-color: #2F3349;
+    border: 1px solid #7367F0;
+    font-size: large;
+    text-align: center;
+    color: white;
 }
