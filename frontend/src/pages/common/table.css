@@ -38,11 +38,11 @@ td {
     border-bottom: 1px solid #404563;
     border-left: .1vh solid #404563;
     border-right: .1vh solid #404563;
+    text-align: center;
 }
 
 .numeric {
     width: 5vw;
-    text-align: center;
 }
 
 .content-table {

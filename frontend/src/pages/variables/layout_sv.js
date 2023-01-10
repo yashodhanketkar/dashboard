@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import "./style.css";
-import "../common/table.css";
-import "../common/common.css";
 
 export default function LayoutSV({ data, name }) {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
   const [filter, setFilter] = useState();
+  const [selectAriaHeight, setSelectAriaHeight] = useState("0px");
+
+  function handleFilterArea() {
+    if (selectAriaHeight === "fit-content") {
+      setSelectAriaHeight("0px");
+    } else if (selectAriaHeight === "0px") {
+      setSelectAriaHeight("fit-content");
+    }
+  }
 
   let handleStart = (e) => {
     let data = +e.target.value;
@@ -25,40 +31,46 @@ export default function LayoutSV({ data, name }) {
 
   return (
     <div className="content">
-      <div className="variable-limit-wrapper">
-        <div className="variable-limit">
-          <label>Start</label>
-          <input
-            className="variable-limit"
-            id="table-start"
-            type="text"
-            onKeyUp={handleStart}
-          />
-        </div>
-        <div className="variable-limit">
-          <label>End</label>
-          <input
-            className="variable-limit"
-            id="table-end"
-            type="text"
-            onKeyUp={handleEnd}
-          />
-        </div>
-        <div className="variable-limit">
-          <label>Filter</label>
-          <input
-            className="variable-limit"
-            id="filter"
-            type="text"
-            onKeyUp={handleFilter}
-          />
+      <div className="filter-wrapper">
+        <button className="toggle-filter" onClick={handleFilterArea}>
+          <label className="toggle-filter">Filter</label>
+        </button>
+        <div className="filter-controls" style={{ height: selectAriaHeight }}>
+          <div className="filter">
+            <label>Start</label>
+            <input
+              className="filter-text"
+              id="table-start"
+              type="text"
+              onKeyUp={handleStart}
+            />
+          </div>
+          <div className="filter">
+            <label>End</label>
+            <input
+              className="filter-text"
+              id="table-end"
+              type="text"
+              onKeyUp={handleEnd}
+            />
+          </div>
+          <div className="filter">
+            <label>Filter</label>
+            <input
+              className="filter-text"
+              id="filter"
+              type="text"
+              onKeyUp={handleFilter}
+            />
+          </div>
         </div>
       </div>
+
       <table>
         <tbody>
           <tr>
-            <td className="tb-header id-column">ID</td>
-            <td className="tb-header">{name}</td>
+            <th>ID</th>
+            <th>{name}</th>
           </tr>
           {data
             .filter((d) => (start + 1 ? d.id >= start : d.id))
@@ -66,8 +78,10 @@ export default function LayoutSV({ data, name }) {
             .filter((d) => (filter ? d.value.toString() === filter : d.value))
             .map((d) => (
               <tr key={d.id}>
-                <td className="id-column">{d.id}</td>
-                <td>{d.value}</td>
+                <td className="item-display-table" style={{ fontWeight: 800 }}>
+                  <a href={`item/${d.id}`}>{d.id}</a>
+                </td>
+                <td className="item-display-table">{d.value}</td>
               </tr>
             ))}
         </tbody>

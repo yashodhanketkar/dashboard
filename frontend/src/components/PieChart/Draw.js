@@ -28,6 +28,7 @@ export default function Draw({ data, start, limit, field, width, height }) {
     .append("text")
     .attr("transform", `translate(${radius / 2},${radius / 2 + 5})`)
     .attr("text-anchor", "middle")
+    .attr("fill", "white")
     .text(field)
     .attr("class", "title");
 
@@ -58,6 +59,7 @@ export default function Draw({ data, start, limit, field, width, height }) {
     .data(adata)
     .enter()
     .append("text")
+    .attr("fill", "white")
     .attr(
       "x",
       (d) =>

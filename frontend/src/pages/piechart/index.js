@@ -6,7 +6,6 @@ import {
   TopicPieChart,
   RegionPieChart,
 } from "./charts";
-import "../common/charts.css";
 
 export default function Piechart() {
   const [limiterValue, setLimiterValue] = useState(5);

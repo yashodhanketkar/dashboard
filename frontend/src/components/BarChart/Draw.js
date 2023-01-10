@@ -72,8 +72,9 @@ function BarChart(
         .append("text")
         .attr("x", marginLeft / 3)
         .attr("y", 10)
-        .attr("fill", "black")
+        .attr("fill", "white")
         .attr("text-anchor", "end")
+        .attr("font-size", "small")
         .text(yLabel)
     );
 

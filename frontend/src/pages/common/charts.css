@@ -36,6 +36,10 @@ input.chart-input {
     border-radius: 10px;
 }
 
+.chart-area:hover {
+    color: white;
+}
+
 .chart-draw-area {
     padding: 2rem;
     display: flex;
@@ -56,4 +60,25 @@ input.chart-input {
     font-size: large;
     text-align: center;
     color: white;
+}
+
+.multi-chart {
+    display: flex;
+    flex-direction: row;
+}
+
+.sub-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+}
+
+.sub-chart label {
+    font-size: large;
+}
+
+.chart-title {
+    font-size: xx-large;
+    text-align: center;
 }

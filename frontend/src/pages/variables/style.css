@@ -1,4 +1,4 @@
-.variable-limit-wrapper {
+/* .variable-limit-wrapper {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -26,4 +26,51 @@
 .variable-limit input {
     margin-right: 1vw;
     width: 5vw;
+} */
+
+.filter-wrapper {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 3.5vh;
+    width: 15vw;
+    left: 0vw;
+}
+
+.filter-wrapper .filter-controls {
+    background-color: #404563;
+    opacity: 1;
+}
+
+.filter-wrapper button {
+    background-color: #404563;
+    height: 3vh;
+    border: 0;
+}
+
+.filter {
+    display: flex;
+    margin-left: 1vw;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+}
+
+.filter label, .filter-wrapper label {
+    color: #b4b4b4;
+    text-align: right;
+    width: 40%;
+}
+
+.filter label:hover {
+    color: white;
+}
+
+.filter label::after {
+    content: ":";
+}
+
+.filter input {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 60%;
 }

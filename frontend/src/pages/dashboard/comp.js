@@ -11,8 +11,6 @@ import {
 } from "./handlers";
 
 import "./style.css";
-import "../common/table.css";
-import "../common/common.css";
 
 export default function Comp({ data }) {
   const [sortColumn, setSortColumn] = useState("id");
@@ -32,6 +30,7 @@ export default function Comp({ data }) {
   const [pageJump, setPageJump] = useState(25);
   const [sortAcitve, setSortActive] = useState(false);
   const [bntWrapper, setBntWrapper] = useState("visible");
+  const [filterActive, setFilterActive] = useState(0);
 
   function handlerNextPage() {
     if (page * pageJump < data.length) {
@@ -72,8 +71,10 @@ export default function Comp({ data }) {
   function handleFilterArea() {
     if (selectAriaHeight === "fit-content") {
       setSelectAriaHeight("0px");
+      setFilterActive(0);
     } else if (selectAriaHeight === "0px") {
       setSelectAriaHeight("fit-content");
+      setFilterActive(1);
     }
   }
 
@@ -263,7 +264,7 @@ export default function Comp({ data }) {
               )
               .filter(
                 (d) =>
-                  sortAcitve
+                  sortAcitve || filterActive
                     ? d
                     : d.id < page * pageJump && d.id + 1 > (page - 1) * pageJump // to include 0th id item
               )

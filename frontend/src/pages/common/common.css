@@ -7,9 +7,23 @@
     left: 16vw;
     width: 84vw;
     background-color: #2F3349;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+    visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    visibility: hidden;
 }

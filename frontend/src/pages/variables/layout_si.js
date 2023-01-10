@@ -20,7 +20,9 @@ function textStyler(k, d) {
 
   return (
     <>
-      <td className="item-display-table">{kName}</td>
+      <td className="item-display-table" style={{ fontWeight: 800 }}>
+        {kName}
+      </td>
       {k === "url" ? (
         <td className="item-display-table">
           <a href={d}>{d}</a>

@@ -4,7 +4,6 @@ import {
   LikelihoodBarChart,
   RelevanceBarChart,
 } from "./charts";
-import "../common/charts.css";
 
 export default function Barchart() {
   const [start, setStart] = useState(0);

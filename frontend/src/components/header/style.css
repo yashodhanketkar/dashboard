@@ -19,8 +19,5 @@ header {
     height: 100%;
     background-color: #2F3349;
     box-shadow: 0vw 1vw 1vw 0vw black;
-}
-
-.app-name:hover {
     color: white;
 }

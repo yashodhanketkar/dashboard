@@ -30,3 +30,15 @@
     background-color: #7367F0;
     color: white;
 }
+
+.nav-divider {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 4vh;
+    padding-left: 1vh;
+    padding-bottom: 1vh;
+    border-bottom: 1px #404563 solid;
+    color: white;
+    font-size: medium;
+}

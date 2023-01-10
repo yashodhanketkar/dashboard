@@ -4,7 +4,6 @@ import {
   LikelihoodLineChart,
   RelevanceLineChart,
 } from "./charts";
-import "../common/charts.css";
 
 export default function Linechart() {
   const [start, setStart] = useState(0);
