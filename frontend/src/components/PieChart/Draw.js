@@ -16,7 +16,7 @@ export default function Draw({ data, start, limit, field, width, height }) {
   const fontSize = getFontSize({ radius });
 
   var colorScale = d3
-    .scaleSequential(d3.interpolate("purple", "orange"))
+    .scaleSequential(d3.interpolate("orange", "red"))
     .domain([start, limit]);
 
   d3.select("#pie-chart")

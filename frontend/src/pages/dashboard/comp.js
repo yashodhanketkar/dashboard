@@ -17,6 +17,7 @@ import "../common/common.css";
 export default function Comp({ data }) {
   const [sortColumn, setSortColumn] = useState("id");
   const [reverseColumn, setReverseColumn] = useState(1);
+  const [selectAriaHeight, setSelectAriaHeight] = useState("0px");
   const [filterDict, setfilterDict] = useState({
     end_year: "",
     topic: "",
@@ -32,6 +33,14 @@ export default function Comp({ data }) {
     const columnOrder = -1 * reverseColumn;
     setReverseColumn(columnOrder);
     setSortColumn(data);
+  }
+
+  function handleFilterArea(e) {
+    if (selectAriaHeight === "fit-content") {
+      setSelectAriaHeight("0px");
+    } else if (selectAriaHeight === "0px") {
+      setSelectAriaHeight("fit-content");
+    }
   }
 
   const filterDictDefault = [
@@ -75,10 +84,10 @@ export default function Comp({ data }) {
   return (
     <div className="content">
       <div className="filter-wrapper">
-        <button className="toggle-filter">
+        <button className="toggle-filter" onClick={handleFilterArea}>
           <label>Filter</label>
         </button>
-        <div className="filter-controls">
+        <div className="filter-controls" style={{ height: selectAriaHeight }}>
           {filterDictDefault.map((d) => (
             <div className="filter" key={d.name}>
               <label>{d.label}</label>

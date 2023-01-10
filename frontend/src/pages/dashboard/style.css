@@ -8,10 +8,6 @@
 }
 
 .filter-wrapper .filter-controls {
-    opacity: 0;
-}
-
-.filter-wrapper .filter-controls:hover {
     background-color: #404563;
     opacity: 1;
 }

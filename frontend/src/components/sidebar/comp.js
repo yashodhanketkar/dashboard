@@ -1,13 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import "./style.css";
 
 export default function Comp() {
   return (
     <div className="sidebar">
-      <a href="/">Home</a>
-      <a href="/barchart">Barchart</a>
-      <a href="/linechart">Linechart</a>
-      <a href="/piechart">PieChart</a>
+      <NavLink to="">Home</NavLink>
+      <NavLink to="barchart">Barchart</NavLink>
+      <NavLink to="linechart">Linechart</NavLink>
+      <NavLink to="piechart">Piechart</NavLink>
     </div>
   );
 }
